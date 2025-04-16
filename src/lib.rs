@@ -28,7 +28,7 @@ pub async fn find_rings() -> Result<Vec<ring::ColmiRing>, Box<dyn Error>> {
     for p in peripherals {
         if let Ok(Some(props)) = p.properties().await {
             if let Some(name) = props.local_name {
-                if name.starts_with("R0") {
+                if name.starts_with("R06") {
                     rings.push(ColmiRing::new(p).await.unwrap());
                 }
             }

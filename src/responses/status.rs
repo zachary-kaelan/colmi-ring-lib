@@ -1,4 +1,4 @@
-use zerocopy::{Immutable, FromBytes, KnownLayout};
+use zerocopy::{Immutable, FromBytes, KnownLayout, byteorder::big_endian::*};
 
 #[repr(C)]
 #[derive(Copy, Clone, Debug, Immutable, KnownLayout, FromBytes)]
@@ -8,8 +8,8 @@ pub struct SetTimeResponse {
     supports_plate: u8,
     supports_menstruation: u8,
     support_flags1: u8,
-    width: u16,
-    height: u16,
+    width: U16,
+    height: U16,
     use_new_sleep_protocol: u8,
     max_watchface: u8,
     support_flags2: u8,
